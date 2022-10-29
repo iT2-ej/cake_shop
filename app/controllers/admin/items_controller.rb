@@ -9,7 +9,7 @@ class Admin::ItemsController < ApplicationController
   def create
    item = Item.new(item_params)
    item.save
-   redirect_to edit_item_path(item.id)
+   redirect_to edit_admin_item_path(item.id)
   end
 
  def show

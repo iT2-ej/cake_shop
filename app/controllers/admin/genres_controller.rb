@@ -4,7 +4,7 @@ class Admin::GenresController < ApplicationController
     genre = Genre.new(genre_params)
    genre.save
 
-   redirect_to edit_genre_path(genre.id)
+   redirect_to edit_admin_genre_path(genre.id)
   end
 
   def index
