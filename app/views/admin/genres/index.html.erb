@@ -1,1 +1,22 @@
-<h1>genres_index</h1>
+<h1>ジャンル一覧・追加</h1>
+
+<%= from_with model: Genre.new do |f| %>
+
+ <h4>ジャンル名</h4>
+ <%= f.text_field :name %>
+ 
+ <%= f.submit '新規登録' %>
+
+<% end %>
+
+ <table class="table">
+   <thead>
+    <tr>
+     <th>ジャンル</th>
+    </tr>
+   </thead>
+   <tbodey>
+     <%= @genre.each do |f| %>
+     <!--10/30 ここに一覧のテーブルを作成予定-->
+   </tbodey>
+ </table>
