@@ -1,10 +1,5 @@
 Rails.application.routes.draw do
-  namespace :admin do
-    get 'homes/top'
-  end
-  namespace :public do
-    get 'homes/top'
-  end
+  
   devise_for :admin,controllers: {
     sessions: 'admin/sessions' , 
    }
@@ -21,6 +16,7 @@ Rails.application.routes.draw do
    
   scope module: :public do
     root to: "homes#top"
+    get '/about' => 'homes#about'
     resources :items
    
   end
