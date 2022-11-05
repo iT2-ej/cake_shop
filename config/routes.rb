@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
-  
-  
+
+
   devise_for :admin,controllers: {
-    sessions: 'admin/sessions' , 
+    sessions: 'admin/sessions' ,
    }
-   
+
  namespace :admin do
    root to: "homes#top"
    resources :genres
@@ -14,12 +14,13 @@ Rails.application.routes.draw do
      sessions: 'public/sessions',
      registrations: 'public/registrations'
    }
-   
+
   scope module: :public do
     root to: "homes#top"
     get '/about' => 'homes#about'
     resources :items
-   
+    resource :customers
+
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
