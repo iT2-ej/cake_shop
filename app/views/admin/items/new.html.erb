@@ -1,22 +1,21 @@
 <h1>商品新規登録</h1>
 　<%= form_with model: Item.new do |f| %>
-   <h2>商品新規登録</h2>
-   <%= f.text_field:title  %>
-   
+   <h2>商品画像</h2>
+   <%= f.file_field :image,accept: "image/*" %>
+
    <h2>商品名</h2>
    <%= f.text_field:body %>
-   
+
    <h2>商品説明</h2>
-   <%= f.text_field:body %>
-   
+   <%= f.text_area:body %>
+
    <h2>ジャンル</h2>
    <%= f.text_field:body %>
-   
+
    <h2>税抜き価格</h2>
    <%= f.text_field:body %>
-   
+
    <h2>販売ステータス</h2>
-   <%= check_box_tag :test1 %>
-   <%= label_tag :test1, "販売中" %>
-   <%= check_box_tag :test2 %>
-   <%= label_tag :test2, "販売" %>
+   <%= f.radio_button(:, 1) %>
+
+ <% end %>

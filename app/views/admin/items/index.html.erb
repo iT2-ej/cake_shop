@@ -1,0 +1,9 @@
+<h1>商品一覧ページ</h1>
+<% @items.each do |item| %>
+
+<p>商品一覧</p>
+ <span>
+   <%= link_to item.title, admin_item_path(item.id) %>
+ </span>
+
+<% end %>
