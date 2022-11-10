@@ -10,7 +10,7 @@
    <%= f.text_area:body %>
 
    <h2>ジャンル</h2>
-   <%= f.text_field:body %>
+   <%= f.collection_select :genre_id, Genre.all, :id, :name, options = { include_blank: true } %>
 
    <h2>税抜き価格</h2>
    <%= f.text_field:body %>
