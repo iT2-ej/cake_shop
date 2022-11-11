@@ -1,7 +1,7 @@
 <h1>商品一覧ページ</h1>
 <% @items.each do |item| %>
 
-<p>商品一覧</p>
+<h2>商品一覧</h2>
  <span>
    <%= link_to item.title, admin_item_path(item.id) %>
  </span>

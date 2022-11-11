@@ -17,7 +17,12 @@ class Admin::GenresController < ApplicationController
   end
 
   def update
-
+    @genre = Genre.find(params[:id])
+    if @genre.update(post_params)
+      redirect_to request.referer
+    else
+      render :new
+    end
   end
 
   private
