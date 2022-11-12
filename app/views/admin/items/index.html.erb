@@ -1,40 +1,41 @@
 <h1>商品一覧ページ</h1>
-<% @items.each do |item| %>
+
 
 <h2>商品一覧</h2>
- <span>
-   <%= link_to item.title, admin_item_path(item.id) %>
- </span>
 
  <table class="table">
   <thead>
     <tr>
-      <th scope="col">ID</th>
-      <th scope="col">商品名</th>
-      <th scope="col">税抜価格</th>
-      <th scope="col">ジャンル</th>
-      <th scope="col">ステータス</th>
+      <th >ID</th>
+      <th >商品名</th>
+      <th >税抜価格</th>
+      <th >ジャンル</th>
+      <th >ステータス</th>
     </tr>
   </thead>
   <tbody>
+    <% @items.each do |item| %>
     <tr>
-      <th scope="row">3</th>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>
+        <%= link_to item.id, admin_item_path(item.id) %>
+      </td>
+      <td>
+        <%= link_to item.name, admin_item_path(item.id) %>
+      </td>
+      <td>
+        <%= link_to item.price, admin_item_path(item.id) %>
+      </td>
+      <td>
+        <%= link_to item.genre.name, admin_item_path(item.id) %>
+      </td>
+      <td>
+        <% if item.is_active == true %>
+        <%= link_to '販売中', admin_item_path(item.id) %>
+        <% elsif item.is_active == false %>
+        <%= link_to '販売停止中', admin_item_path(item.id) %>
+        <% end %>
+      </td>
     </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td></td>
-      <td></td>
-    </tr>
+   <% end %>
   </tbody>
 </table>
-
-<% end %>
