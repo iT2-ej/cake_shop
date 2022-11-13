@@ -31,7 +31,7 @@
       <td>
         <% if item.is_active == true %>
         <%= link_to '販売中', admin_item_path(item.id) %>
-        <% elsif item.is_active == false %>
+        <% elsif items_active == false %>
         <%= link_to '販売停止中', admin_item_path(item.id) %>
         <% end %>
       </td>
