@@ -5,7 +5,7 @@ Rails.application.routes.draw do
    root to: "homes#top"
    resources :genres
    resources :items
-   
+   resources :customers
  end
    devise_for :admin,controllers: {
     sessions: 'admin/sessions' ,
