@@ -1,0 +1,29 @@
+<h1>会員詳細画面</h1>
+ <table class="table table-borderless">
+         <tr>
+          <th>会員ID</th>
+          <td>
+           <%= @customer.id %>
+          </td>
+          <th>氏名</th>
+           <td>
+            <%= @customer.last_name %><%= @customer.first_name %>
+          </td>
+         </tr>
+        <tr>
+         <th>メールアドレス</th>
+         <td>
+          <%= @customer.email %>
+         </td>
+        </tr>
+       <tr>
+        <th>ステータス</th>
+        <td>
+          <% if @customer.is_deleted == false %>
+           <p>有効</p>
+          <% else %>
+           <p>販売停止中</p>
+          <% end %>
+        </td>
+      </tr>
+     </table>
