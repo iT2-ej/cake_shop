@@ -13,3 +13,6 @@
  *= require_tree .
  *= require_self
  */
+.w-50{
+  width:50%;
+}
