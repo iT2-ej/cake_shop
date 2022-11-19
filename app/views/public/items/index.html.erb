@@ -1,0 +1,18 @@
+<div class= "container">
+<h1>商品一覧</h1>
+ <div class= "row">
+   <% @items.each do |item| %>
+   <div class= "col-md-3">
+     <div>
+     <%= image_tag item.get_item_image(200,200)  %>
+     </div>
+     <div>
+       <%= item.name %>
+     </div>
+     <div>
+       <%= item.price %>
+     </div>
+   </div>
+   <% end %>
+ </div>
+</div>
