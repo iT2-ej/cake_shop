@@ -6,6 +6,8 @@ Rails.application.routes.draw do
    resources :genres
    resources :items
    resources :customers
+   resources :orders
+   resources :order_details
  end
    devise_for :admin,controllers: {
     sessions: 'admin/sessions' ,

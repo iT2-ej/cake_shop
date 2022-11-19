@@ -7,22 +7,32 @@
           </td>
          </tr>
         <tr>
-         <th></th>
+         <th>注文日</th>
          <td>
-          <%= @customer.email %>
+          <%= @order.created_at %>
          </td>
+        </tr>
+        <tr>
+          <th>配送先</th>
+          <td>
+           <%= @order.shipping_address%>
+          </td>
+        </tr>
+        <tr>
+          <th>支払方法</th>
+          <td>
+           <%= @order.paymant_method %>
+          </td>
         </tr>
        <tr>
         <th>ステータス</th>
         <td>
-          <% if @customer.is_deleted == false %>
-           <p>有効</p>
-          <% else %>
-           <p>販売停止中</p>
-          <% end %>
+         <%= form_with model: @order, url: admin_order_path(@order.id) do |f|%>
+          <%= f.select :order_status, Order.order_statuses_i18n%>
+         <% end %>
         </td>
       </tr>
      </table>
      <div>
-      <%= link_to '編集する',  edit_admin_customer_path(@customer.id) %>
+      <%= link_to '更新する',  admin_order_path(@order.id) %>
      </div>
