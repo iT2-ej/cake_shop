@@ -26,6 +26,7 @@ Rails.application.routes.draw do
     get '/customers/my_page' => 'customers#show',as: 'my_page'
     patch '/customers/information/edit' => 'customers#update',as: 'edit_update'
     get '/customers/unsubscribe' => 'customers#unsubscribe',as: 'unsubscribe'
+    resources :cart_items
 
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
