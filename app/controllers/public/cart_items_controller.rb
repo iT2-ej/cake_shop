@@ -1,8 +1,8 @@
 class Public::CartItemsController < ApplicationController
 
   def index
-    @item = Cart_items.
-    @items = Cart_items.all
+    @customer = current_customer
+    @cart_items = @customer.cart_items
   end
 
   def update
@@ -19,14 +19,14 @@ class Public::CartItemsController < ApplicationController
     @item.destroy
     redirect_to cart_items_path
   end
-  
+
   def destroy_all
     @customer = current_customer
     @items = @customer.items
     @item.destroy
   end
-  
+
   def create
-    
+
   end
 end

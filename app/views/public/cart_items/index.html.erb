@@ -14,10 +14,10 @@
     <% form_with model: Item.show, url: cart_items_path do |f| %>
     <tr>
       <td>
-       <%= f.text_field :name %>
+       <%= @item.name %>
       </td>
       <td>
-       <%= f.text_field :price %>
+       <%= @item.price %>
       </td>
       <td>
        <%= f.select :amount,['1','2','3'],{include_blank: '1'} %>
