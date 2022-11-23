@@ -1,9 +1,9 @@
 <div class="container">
   <h1>商品詳細</h1>
-  　<% form_with model: Item.show url: cart_items_path do |f| %>
+  　<%= form_with model: CartItem.new, url: cart_items_path do |f| %>
   <div class="row">
     <div class="col-4">
-      <%= image_tag @item.image, size: "300x300" %>
+      <%= image_tag @item.item_image, size: "300x300" %>
     </div>
     <div class= "col-7">
       <table class="table table-borderless">
@@ -33,9 +33,11 @@
       </tr>
      </table>
      <div>
-      <%= link_to 'カートに入れる', cart_items_path(@item.id) %>
+      <%= f.submit 'カートに入れる' %>
+      <%= f.hidden_field :item_id, :value => @item.id %>
+      <%= f.hidden_field :customer_id, :value => current_customer.id %>
      </div>
-     <% end %>
    </div>
   </div>
+  <% end %>
 </div>

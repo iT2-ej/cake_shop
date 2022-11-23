@@ -23,6 +23,9 @@
        <%= f.select :amount,['1','2','3'],{include_blank: '1'} %>
        <%= f.submit '更新' %>
       </td>
+      <td>
+       <%= %>
+      </td>
     <% end %>
       <td>
        <%= link_to '削除する',cart_item_path(@item.id),method: :delete %>
