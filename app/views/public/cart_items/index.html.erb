@@ -11,7 +11,7 @@
     </tr>
   </thead>
   <tbody>
-    <% form_with model: Item.show, url: cart_items_path do |f| %>
+    <% @item.each do |cart_item| %>
     <tr>
       <td>
        <%= @item.name %>
@@ -24,8 +24,12 @@
        <%= f.submit '更新' %>
       </td>
       <td>
-       <%= %>
+       <%= cart_item.item.with_tax_price %>
       </td>
+      <td>
+       <%= cart_item.subtotal%>
+      </td>
+       <% @合計金額 += (cart_item.item.price * 1.1).floor * cart_item.amount %>
     <% end %>
       <td>
        <%= link_to '削除する',cart_item_path(@item.id),method: :delete %>
