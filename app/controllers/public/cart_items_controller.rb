@@ -3,6 +3,7 @@ class Public::CartItemsController < ApplicationController
   def index
     @customer = current_customer
     @cart_items = @customer.cart_items
+    @total_amount = @customer.cart_items.items.price
   end
 
   def update

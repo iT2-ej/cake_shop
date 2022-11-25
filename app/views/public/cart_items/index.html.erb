@@ -29,7 +29,7 @@
       <td>
        <%= cart_item.subtotal%>
       </td>
-       <% @合計金額 += (cart_item.item.price * 1.1).floor * cart_item.amount %>
+       <% @total_amount += (cart_item.item.price * 1.1).floor * cart_item.amount %>
     <% end %>
       <td>
        <%= link_to '削除する',cart_item_path(@item.id),method: :delete %>
