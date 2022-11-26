@@ -36,3 +36,16 @@
    <% end %>
   </tbody>
  </table>
+ <%=link_to '買い物を続ける',items_path %>
+ <table class="table table-bordered">
+    <tr>
+     <div class="row">
+      <th class= "col-2">合計金額</th>
+     </div>
+     <div class="row">
+      <th class="col-2">
+       <%= @total_amount %>
+      </th>
+     </div>
+    </tr>
+</table>
