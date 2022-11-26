@@ -1,5 +1,5 @@
 <h1>ショッピングカート</h1>
- <%= link_to 'カートを空にする',cart_items_path(@item.id) %>
+ <%= link_to 'カートを空にする',cart_items_path %>
   <table class="table table-bordered">
    <thead>
     <tr>
@@ -11,30 +11,30 @@
     </tr>
   </thead>
   <tbody>
-    <% @item.each do |cart_item| %>
+    <% @cart_items.each do |cart_item| %>
     <tr>
       <td>
-       <%= @item.name %>
-      </td>
-      <td>
-       <%= @item.price %>
-      </td>
-      <td>
-       <%= f.select :amount,['1','2','3'],{include_blank: '1'} %>
-       <%= f.submit '更新' %>
+       <%= cart_item.item.name %>
       </td>
       <td>
        <%= cart_item.item.with_tax_price %>
       </td>
       <td>
+       <% form_with model: CartItem do |f| %>
+       <%= f.select :amount,['1','2','3'],{include_blank: '1'} %>
+       <%= f.submit '更新' %>
+       <% end %>
+      </td>
+      <td>
        <%= cart_item.subtotal%>
       </td>
        <% @total_amount += (cart_item.item.price * 1.1).floor * cart_item.amount %>
-    <% end %>
       <td>
-       <%= link_to '削除する',cart_item_path(@item.id),method: :delete %>
+       <%= link_to '削除する',cart_item_path(cart_item.id),method: :delete %>
       </td>
     </tr>
+    <% end %>
 
   </tbody>
  </table>
+  
