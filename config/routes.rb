@@ -28,6 +28,8 @@ Rails.application.routes.draw do
     get '/customers/unsubscribe' => 'customers#unsubscribe',as: 'unsubscribe'
     resources :cart_items
     resources :orders
+    post 'orders/confirm' => 'orders#confirm',as: 'confirm'
+    get 'orders/complete' => 'orders#complete',as: 'complete'
     resources :order_details
 
   end
