@@ -8,6 +8,7 @@ class Public::OrdersController < ApplicationController
   def new
     @order = Order.new
     @customer = current_customer
+    @addresses = @customer.addresses
   end
 
   def create
