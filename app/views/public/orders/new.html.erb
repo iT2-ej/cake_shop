@@ -19,11 +19,11 @@
   <div class="field">
     <%= f.radio_button :address_number,2 %>
     <%= f.label :address_number, "新しいお届け先" %>
-    <%= f.label :postal_code, "郵便番号(ハイフンなし)" %><br />
-    <%= f.text_field :postal_code, autocomplete: "0000" %><br />
-    <%= f.label :address,"住所" %><br />
-    <%= f.text_field :address, autocomplete: "大阪府大阪市" %><br/>
-    <%= f.label :last_name, "宛先" %><br />
+    <%= f.label :shipping_postal, "郵便番号(ハイフンなし)" %><br />
+    <%= f.text_field :shipping_postal, autocomplete: "0000" %><br />
+    <%= f.label :shipping_address,"住所" %><br />
+    <%= f.text_field :shipping_address, autocomplete: "大阪府大阪市" %><br/>
+    <%= f.label :shipping_name, "宛先" %><br />
     <%= f.text_field :shipping_name, autofocus: true, autocomplete: "宛名" %><br />
   </div>
   <%= f.submit "確認画面へ進む" %>
