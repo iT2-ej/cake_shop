@@ -27,9 +27,9 @@ Rails.application.routes.draw do
     patch '/customers/information/edit' => 'customers#update',as: 'edit_update'
     get '/customers/unsubscribe' => 'customers#unsubscribe',as: 'unsubscribe'
     resources :cart_items
-    resources :orders
     post 'orders/confirm' => 'orders#confirm',as: 'confirm'
     get 'orders/complete' => 'orders#complete',as: 'complete'
+    resources :orders
     resources :order_details
 
   end

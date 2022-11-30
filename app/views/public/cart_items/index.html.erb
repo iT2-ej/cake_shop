@@ -21,7 +21,7 @@
       </td>
       <td>
        <%= form_with model: cart_item do |f| %>
-       <%= f.select :amount,['1','2','3'],{include_blank: '1'} %>
+       <%= f.select :amount,['1','2','3'],{include_blank: '個数'} %>
        <%= f.submit '更新' %>
        <% end %>
       </td>

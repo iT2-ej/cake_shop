@@ -1,5 +1,5 @@
 <h1>注文情報入力</h1>
-<h2>支払情報</h2>
+<h2>支払方法</h2>
  <%= form_with model: @order,url: confirm_path  do |f| %>
     <%= f.radio_button :payment_method, "credit_card"%>
     <%= f.label :payment_method_credit_card, "クレジットカード" %><br/>
@@ -25,11 +25,7 @@
     <%= f.text_field :address, autocomplete: "大阪府大阪市" %><br/>
     <%= f.label :last_name, "宛先" %><br />
     <%= f.text_field :shipping_name, autofocus: true, autocomplete: "宛名" %><br />
-
- </div>
-
-<h2>支払方法</h2>
-
-<h2>お届け先</h2>
-
+  </div>
+  <%= f.submit "確認画面へ進む" %>
 <% end %>
+
