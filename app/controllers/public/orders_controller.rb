@@ -23,11 +23,18 @@ class Public::OrdersController < ApplicationController
 
   def confirm
     @order = Order.new(order_params)
-    @address = Address.find(params[:order][address_id])
-    @order.shipping_postal = current_customer.postal_code
-    @order.shipping_address = current_customer.address
-    @order.shipping_name = current_customer.last_name + current_customer.first_name
-    binding.pry
+    if params[:order][:address_number] == "0"
+      @order.shipping_postal = current_customer.postal_code
+      @order.shipping_address = current_customer.address
+      @order.shipping_name = current_customer.last_name + current_customer.first_name
+    elsif params[:order][:address_number] == "1"
+       @address = Address.find(params[:order][:address_id])
+       @order.shipping_postal = @address.postal_code
+       @order.shipping_address = @address.address
+       @order.shipping_name = @address.name
+    else
+
+    end
   end
 
   private
