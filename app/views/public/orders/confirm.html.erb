@@ -13,21 +13,18 @@
   <tbody>
     <tr>
       <td>
-       <%= cart_item.item.name %>
+        <%= cart_item.item.name %>
       </td>
       <td>
-       <%= cart_item.item.with_tax_price %>
+        <%= cart_item.item.with_tax_price %>
       </td>
       <td>
-       
-       <%= f.select :amount,['1','2','3'],{include_blank: '個数'} %>
-       
+        <%= cart_items.item.amount %>
       </td>
       <td>
-       <%= cart_item.subtotal%>
+        <%= cart_item.item.billing_amount %>
       </td>
     </tr>
-   <% end %>
   </tbody>
   <table class="table table-bordered">
    <thead>
@@ -48,7 +45,7 @@
   </thead>
   <tbody>
     <tr>
-      <td></td>
+      <td><% @order.%></td>
     </tr>
   </tbody>
   <table class="table table-bordered">
@@ -62,4 +59,3 @@
       <td></td>
     </tr>
   </tbody>
-  
