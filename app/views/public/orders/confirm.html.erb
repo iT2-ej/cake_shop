@@ -11,6 +11,7 @@
     </tr>
   </thead>
   <tbody>
+    <% @cart_items.each do |cart_item| %>
     <tr>
       <td>
         <%= cart_item.item.name %>
@@ -19,14 +20,17 @@
         <%= cart_item.item.with_tax_price %>
       </td>
       <td>
-        <%= cart_items.item.amount %>
+        <%= cart_item.amount %>
       </td>
       <td>
-        <%= cart_item.item.billing_amount %>
+        <%= cart_item.subtotal %>
+        <% @total_amount += cart_item.subtotal %>
       </td>
     </tr>
+    <% end %>
   </tbody>
-  <table class="table table-bordered">
+</table>
+<table class="table table-bordered">
    <thead>
     <tr>
       <th>商品合計金額</th>
@@ -34,10 +38,11 @@
   </thead>
   <tbody>
     <tr>
-      <td><% @total_amount += (cart_item.item.price * 1.1).floor * cart_item.amount %></td>
+      <td><%= @total_amount  %></td>
     </tr>
   </tbody>
-  <table class="table table-bordered">
+</table>
+<table class="table table-bordered">
    <thead>
     <tr>
       <th>送料</th>
@@ -45,10 +50,11 @@
   </thead>
   <tbody>
     <tr>
-      <td><% @order.%></td>
+      <td></td>
     </tr>
   </tbody>
-  <table class="table table-bordered">
+</table>
+<table class="table table-bordered">
    <thead>
     <tr>
       <th>請求金額</th>
@@ -59,3 +65,4 @@
       <td></td>
     </tr>
   </tbody>
+</table>
