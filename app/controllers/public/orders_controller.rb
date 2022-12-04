@@ -2,7 +2,9 @@ class Public::OrdersController < ApplicationController
 
   def index
     @order = Order.new
-    @orders = Order.all
+    @customer = current_customer
+    @cart_items = @customer.cart_items
+    @total_amount = 0
   end
 
   def new

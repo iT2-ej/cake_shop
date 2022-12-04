@@ -69,3 +69,5 @@
   <%= @order.payment_method_i18n %>
 <h2>お届け先</h2>
   <%= "〒"+@customer.postal_code+" "+@customer.address+" "+@customer.last_name+@customer.first_name%>
+
+<%= link_to "注文を確定する", complete_path %>
