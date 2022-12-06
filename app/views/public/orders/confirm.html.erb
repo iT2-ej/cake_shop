@@ -69,5 +69,14 @@
   <%= @order.payment_method_i18n %>
 <h2>お届け先</h2>
   <%= "〒"+@customer.postal_code+" "+@customer.address+" "+@customer.last_name+@customer.first_name%>
-
-<%= link_to "注文を確定する", complete_path %>
+  <%= form_with model: @order,url: orders_path do |f| %>
+  <%= f.hidden_field :customer_id, :value => current_customer.id %>
+  <%= f.hidden_field :shipping_postal, :value => @order.shipping_postal %>
+  <%= f.hidden_field :shipping_address, :value => @order.shipping_address %>
+  <%= f.hidden_field :shipping_name, :value => @order.shipping_name %>
+  <%= f.hidden_field :postage, :value => @order.postage %>
+  <%= f.hidden_field :payment_method, :value => @order.payment_method %>
+  <%= f.hidden_field :billing_amount, :value => @total_amount %>
+  <%= f.hidden_field :order_status, :value => @order.order_status %>
+  <%= f.submit '注文を確定する' %>
+ <% end %>

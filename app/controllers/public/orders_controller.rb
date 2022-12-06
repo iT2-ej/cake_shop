@@ -1,7 +1,7 @@
 class Public::OrdersController < ApplicationController
 
   def index
-    @order = Order.new
+    @orders = Order.all
     @customer = current_customer
     @cart_items = @customer.cart_items
     @total_amount = 0
@@ -14,9 +14,9 @@ class Public::OrdersController < ApplicationController
   end
 
   def create
-    order = Order.new(order_params)
-    order.save
-    redirect_to orders_path(order.id)
+    @order = Order.new(order_params)
+    @order.save
+    redirect_to complete_path
   end
 
   def complete
@@ -37,13 +37,22 @@ class Public::OrdersController < ApplicationController
        @order.shipping_postal = @address.postal_code
        @order.shipping_address = @address.address
        @order.shipping_name = @address.name
-    else
-
+    elsif params[:order][:address_number] == "2"
+      @address = Address.new()
+      @address.postal_code = params[:order][:shipping_postal]
+      @address.name =params[:order][:shipping_name]
+      @address.address = params[:order][:shipping_address]
+      @address.customer_id = current_customer.id
+      @address.save
+      @order.shipping_postal =@address.postal_code
+      @order.shipping_name = @address.name
+      @order.shipping_address = @address.address
     end
+
   end
 
   private
   def order_params
-   params.require(:order).permit(:payment_method, :shipping_postal, :shipping_address, :shipping_name)
+   params.require(:order).permit(:payment_method, :shipping_postal, :shipping_address, :shipping_name, :customer_id, :postage, :order_status, :billing_amount)
   end
 end

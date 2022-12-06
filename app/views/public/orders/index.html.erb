@@ -11,25 +11,25 @@
     </tr>
   </thead>
   <tbody>
-    <% @cart_items.each do |cart_item| %>
+    <% @orders.each do |order| %>
     <tr>
       <td>
-        <%= @order.created_at %>
+        <%= order.created_at %>
       </td>
       <td>
          <%= "〒"+@customer.postal_code+" "+@customer.address+" "+@customer.last_name+@customer.first_name%>
       </td>
       <td>
-        <%= cart_item.item.name %>
+        <%= @order.item.name %>
       </td>
       <td>
-        <%= @total_amount += @order.postage %>
+        <%= @total_amount += cart_item.subtotal %>
       </td>
       <td>
-        <%= @order.order_status %>
+        <%= order.order_status %>
       </td>
       <td>
-        <%= f.submit "表示する" %>
+        <%= link_to "表示する", orders_path %>
       </td>
     </tr>
     <% end %>
