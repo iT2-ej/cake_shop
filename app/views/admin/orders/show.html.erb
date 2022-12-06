@@ -1,38 +1,38 @@
 <h1>注文履歴詳細</h1>
   <table class="table table-borderless">
-         <tr>
-          <th>購入者</th>
-           <td>
-            <%= @customer.last_name %><%= @customer.first_name %>
-          </td>
-         </tr>
-        <tr>
-         <th>注文日</th>
-         <td>
-          <%= @order.created_at %>
-         </td>
-        </tr>
-        <tr>
-          <th>配送先</th>
-          <td>
-           <%= @order.shipping_address%>
-          </td>
-        </tr>
-        <tr>
-          <th>支払方法</th>
-          <td>
-           <%= @order.paymant_method %>
-          </td>
-        </tr>
-       <tr>
-        <th>ステータス</th>
-        <td>
-         <%= form_with model: @order, url: admin_order_path(@order.id) do |f|%>
-          <%= f.select :order_status, Order.order_statuses_i18n%>
-         <% end %>
-        </td>
-      </tr>
-     </table>
+    <tr>
+     <th>購入者</th>
+      <td>
+       <%= @customer.last_name %><%= @customer.first_name %>
+     </td>
+    </tr>
+    <tr>
+     <th>注文日</th>
+     <td>
+      <%= @order.created_at %>
+     </td>
+    </tr>
+    <tr>
+      <th>配送先</th>
+      <td>
+       <%= @order.shipping_address%>
+      </td>
+    </tr>
+    <tr>
+      <th>支払方法</th>
+      <td>
+       <%= @order.paymant_method %>
+      </td>
+    </tr>
+   <tr>
+    <th>ステータス</th>
+    <td>
+     <%= form_with model: @order, url: admin_order_path(@order.id) do |f|%>
+      <%= f.select :order_status, Order.order_statuses_i18n%>
+     <% end %>
+    </td>
+  </tr>
+  </table>
      <div>
       <%= link_to '更新する',  admin_order_path(@order.id) %>
      </div>
