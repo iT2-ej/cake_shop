@@ -2,7 +2,9 @@ class Admin::OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
-    @customer = Customer.find(params[:id])
+    @orders = Order.all
+    @customer = current_customer
+    @cart_items = @customer.cart_items
   end
 
   def update
