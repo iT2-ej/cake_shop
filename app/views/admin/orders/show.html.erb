@@ -62,7 +62,26 @@
       <td>
         <%= cart_item.subtotal %>
       </td>
+       <% @total_amount += (cart_item.item.price * 1.1).floor * cart_item.amount %>
     </tr>
     <% end %>
   </tbody>
+ </table>
+
+ <table class="table table-borderless">
+  <tr>
+   <td>商品合計</td>
+   <td>
+    
+    <%= @total_amount %>
+    </td>
+  </tr>
+  <tr>
+   <td>送料</td>
+   <td><%= @order.postage %></td>
+  </tr>
+  <tr>
+   <td>請求合計金額</td>
+   <td><%= @total_amount += @order.postage %></td>
+  </tr>
  </table>
