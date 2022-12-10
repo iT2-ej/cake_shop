@@ -26,6 +26,7 @@ class Public::OrdersController < ApplicationController
     order_detail.crafting_status = 0
     order_detail.save
     end
+    @cart_items.destroy_all
     redirect_to complete_path
   end
 
@@ -59,6 +60,14 @@ class Public::OrdersController < ApplicationController
       @order.shipping_address = @address.address
     end
 
+  end
+
+  def show
+   @orders = Order.all
+   @order = Order.find(params[:id])
+   @customer = current_customer
+   @order_details = @order.order_details.all
+   @total_amount = 0
   end
 
   private

@@ -20,16 +20,18 @@
          <%= "〒"+@customer.postal_code+" "+@customer.address+" "+@customer.last_name+@customer.first_name%>
       </td>
       <td>
-        <%= @order.item.name %>
+        <% order.order_details.each do |order_detail| %>
+         <%= order_detail.item.name %>
+        <% end %>
       </td>
       <td>
-        <%= @total_amount += cart_item.subtotal %>
+        <%= order.billing_amount %>
       </td>
       <td>
         <%= order.order_status %>
       </td>
       <td>
-        <%= link_to "表示する", orders_path %>
+        <%= link_to "表示する", order_path(order.id) %>
       </td>
     </tr>
     <% end %>
