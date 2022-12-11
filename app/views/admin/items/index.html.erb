@@ -17,16 +17,16 @@
     <% @items.each do |item| %>
     <tr>
       <td>
-        <%= link_to item.id, admin_item_path(item.id) %>
+        <%= item.id %>
       </td>
       <td>
         <%= link_to item.name, admin_item_path(item.id) %>
       </td>
       <td>
-        <%= link_to item.price, admin_item_path(item.id) %>
+        <%= item.price %>
       </td>
       <td>
-        <%= link_to item.genre.name, admin_item_path(item.id) %>
+        <%= item.genre.name %>
       </td>
       <td>
         <% if item.is_active == true %>
