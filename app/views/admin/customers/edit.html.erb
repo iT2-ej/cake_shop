@@ -41,6 +41,11 @@
      <%= f.email_field :email, autoforcus: true, autocomplete: "メールアドレス" %>
    </div>
 
-   <%= f.submit "変更を保存する" %>
+   <div class="field">
+    <%= f.radio_button :, "会員ステータス" %>
+    <%= f.label :, "会員ステータス" %><br/>
+   </div>
+
+   <%= f.submit "変更を保存する",class:"btn btn-success" %>
   <% end %>
 </form>
