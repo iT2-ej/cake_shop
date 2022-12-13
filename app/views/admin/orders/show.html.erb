@@ -27,15 +27,14 @@
    <tr>
     <th>ステータス</th>
     <td>
-     <%= form_with model: @order, url: admin_order_path(@order.id) do |f|%>
+      <%= form_with model: @order, url: admin_order_path(@order.id) do |f|%>
       <%= f.select :order_status, Order.order_statuses_i18n%>
+      <%= f.submit '更新',class:"btn btn-success" %>
      <% end %>
     </td>
   </tr>
   </table>
-     <div>
-      <%= link_to '更新',  admin_order_path(@order.id) %>
-     </div>
+
 
   <table class="table table-bordered">
    <thead>
