@@ -1,5 +1,7 @@
 <h1>ショッピングカート</h1>
- <%= link_to 'カートを空にする',cart_items_path %>
+<div class="text-right">
+ <%= link_to 'カートを空にする',cart_items_path,class:"btn btn-danger mb-3" %>
+</div>
   <table class="table table-bordered">
    <thead>
     <tr>
@@ -30,24 +32,25 @@
       </td>
        <% @total_amount += (cart_item.item.price * 1.1).floor * cart_item.amount %>
       <td>
-       <%= link_to '削除する',cart_item_path(cart_item.id), method: :delete %>
+       <%= link_to '削除する',cart_item_path(cart_item.id), method: :delete,class:"btn btn-danger" %>
       </td>
     </tr>
    <% end %>
   </tbody>
  </table>
- <%=link_to '買い物を続ける',items_path %>
- <table class="table table-bordered">
-    <tr>
-     <div class="row">
-      <th class= "col-2">合計金額</th>
-     </div>
-     <div class="row">
-      <th class="col-2">
-       <%= @total_amount %>
-      </th>
-     </div>
-    </tr>
-</table>
-
-<%= link_to '情報入力に進む',new_order_path %>
+ <div class="d-flex justify-content-between">
+   <div class="text-right">
+    <%=link_to '買い物を続ける',items_path,class:"btn btn-primary mb-5" %>
+   </div>
+    <table class="table table-bordered w-25">
+       <tr>
+          <th class="col">合計金額</th>
+          <th class="col">
+           <%= @total_amount %>
+          </th>
+       </tr>
+   </table>
+ </div>
+<div class="text-center">
+ <%= link_to '情報入力に進む',new_order_path,class:"btn btn-success" %>
+</div>

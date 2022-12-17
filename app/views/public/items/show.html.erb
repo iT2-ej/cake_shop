@@ -28,12 +28,12 @@
        <tr>
         <th>個数</th>
         <td>
-           <%= f.select :amount, ['1', '2', '3'], {include_blank: '数量'} %>
+           <%= f.select :amount, ['1', '2', '3'], {include_blank: '個数選択'} %>
         </td>
       </tr>
      </table>
      <div>
-      <%= f.submit 'カートに入れる' %>
+      <%= f.submit 'カートに入れる',class:"btn btn-success" %>
       <%= f.hidden_field :item_id, :value => @item.id %>
       <%= f.hidden_field :customer_id, :value => current_customer.id %>
      </div>

@@ -78,5 +78,5 @@
   <%= f.hidden_field :payment_method, :value => @order.payment_method %>
   <%= f.hidden_field :billing_amount, :value => @total_amount %>
   <%= f.hidden_field :order_status, :value => @order.order_status %>
-  <%= f.submit '注文を確定する' %>
+  <%= f.submit '注文を確定する',class:"btn btn-primary" %>
   <% end %>
