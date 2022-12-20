@@ -26,6 +26,7 @@ Rails.application.routes.draw do
     get '/customers/my_page' => 'customers#show',as: 'my_page'
     patch '/customers/information/edit' => 'customers#update',as: 'edit_update'
     get '/customers/unsubscribe' => 'customers#unsubscribe',as: 'unsubscribe'
+    delete 'cart_items/destroy_all' => 'cart_items#destroy_all',as: 'destroy_all'
     resources :cart_items
     post 'orders/confirm' => 'orders#confirm',as: 'confirm'
     get 'orders/complete' => 'orders#complete',as: 'complete'

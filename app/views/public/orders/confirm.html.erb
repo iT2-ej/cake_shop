@@ -54,7 +54,7 @@
     <h2>支払方法</h2>
       <%= @order.payment_method_i18n %>
     <h2>お届け先</h2>
-      <%= "〒"+@customer.postal_code+" "+@customer.address+" "+@customer.last_name+@customer.first_name%>
+      <%= "〒"+@order.shipping_postal+" "+@order.shipping_address+" "+@order.shipping_name%>
       <%= form_with model: @order,url: orders_path do |f| %>
       <%= f.hidden_field :customer_id, :value => current_customer.id %>
       <%= f.hidden_field :shipping_postal, :value => @order.shipping_postal %>

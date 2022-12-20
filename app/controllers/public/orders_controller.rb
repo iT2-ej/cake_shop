@@ -48,16 +48,8 @@ class Public::OrdersController < ApplicationController
        @order.shipping_postal = @address.postal_code
        @order.shipping_address = @address.address
        @order.shipping_name = @address.name
-    elsif params[:order][:address_number] == "2"
-      @address = Address.new()
-      @address.postal_code = params[:order][:shipping_postal]
-      @address.name =params[:order][:shipping_name]
-      @address.address = params[:order][:shipping_address]
-      @address.customer_id = current_customer.id
-      @address.save
-      @order.shipping_postal =@address.postal_code
-      @order.shipping_name = @address.name
-      @order.shipping_address = @address.address
+    else 
+
     end
 
   end

@@ -3,7 +3,7 @@
     <tr>
      <th>購入者</th>
       <td>
-       <%= @order_customer.last_name %><%= @order_customer.first_name %>
+       <%= @order.last_name %><%= @order.first_name %>
      </td>
     </tr>
     <tr>
@@ -28,9 +28,10 @@
     <th>ステータス</th>
     <td>
       <%= form_with model: @order, url: admin_order_path(@order.id) do |f|%>
-      <%= f.select :order_status, Order.order_statuses_i18n.invert%>
+      <%= f.select :order_status, Order.order_statuses_i18n.invert %>
       <%= f.submit '更新',class:"btn btn-success" %>
      <% end %>
+
     </td>
   </tr>
   </table>
@@ -47,21 +48,21 @@
   </thead>
   <tbody>
     <tbody>
-    <% @order_details.each do |order_detail| %>
+    <% @cart_items.each do |cart_item| %>
     <tr>
       <td>
-        <%= order_detail.item.name %>
+        <%= cart_item.item.name %>
       </td>
       <td>
-        <%= (order_detail.purchase_prise * 1.1).floor %>
+        <%= cart_item.item.with_tax_price %>
       </td>
       <td>
-        <%= order_detail.quantity %>
+        <%= cart_item.amount %>
       </td>
       <td>
-        <%= (order_detail.purchase_prise * 1.1).floor * order_detail.quantity %>
+        <%= cart_item.subtotal %>
       </td>
-       <% @total_amount += (order_detail.purchase_prise * 1.1).floor * order_detail.quantity %>
+       <% @total_amount += (cart_item.item.price * 1.1).floor * cart_item.amount %>
     </tr>
     <% end %>
   </tbody>

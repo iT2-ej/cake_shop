@@ -17,7 +17,7 @@
     <%= f.collection_select :address_id, @addresses, :id, :address_display %><br/>
   <div class="field">
     <%= f.radio_button :address_number,2 %>
-    <%= f.label :address_number, "新しいお届け先" %>
+    <%= f.label :address_number, "新しいお届け先" %><br/>
     <%= f.label :shipping_postal, "郵便番号(ハイフンなし)" %><br />
     <%= f.text_field :shipping_postal, autocomplete: "0000" %><br />
     <%= f.label :shipping_address,"住所" %><br />

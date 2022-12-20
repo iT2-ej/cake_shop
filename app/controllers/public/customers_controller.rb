@@ -5,7 +5,7 @@ class Public::CustomersController < ApplicationController
   end
 
   def unsubscribe
-
+   @customer = Customer.find_by(name: params[:name])
   end
 
   def withdraw
@@ -22,7 +22,7 @@ class Public::CustomersController < ApplicationController
   def update
     @customer = current_customer
     if @customer.update(customer_params)
-      redirect_to my_page_path,notice: '会員情報を更新しました.'
+      redirect_to root_path,notice: '会員情報を更新しました.'
     else
       render :edit
     end

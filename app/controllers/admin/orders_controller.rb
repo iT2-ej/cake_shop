@@ -1,15 +1,24 @@
 class Admin::OrdersController < ApplicationController
 
+  def index
+    @orders = Order.all
+  end
+
   def show
     @order = Order.find(params[:id])
     @orders = Order.all
-    @customer = current_customer
-    @cart_items = @customer.cart_items
+    @order_details = @order.order_details
+    @order_customer = @order.customer
     @total_amount = 0
   end
 
   def update
-
+   @order = Order.find(params[:id])
+    if @order.update(order_params)
+      redirect_to admin_order_path
+    else
+      render :new
+    end
   end
 
   private
