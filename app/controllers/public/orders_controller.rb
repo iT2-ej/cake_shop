@@ -48,7 +48,7 @@ class Public::OrdersController < ApplicationController
        @order.shipping_postal = @address.postal_code
        @order.shipping_address = @address.address
        @order.shipping_name = @address.name
-    else 
+    else
 
     end
 
